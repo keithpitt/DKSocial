@@ -172,6 +172,12 @@ Then define the following in your project somewhere:
 
         }
 
+## Libraries Used
+
+* https://github.com/bengottlieb/Twitter-OAuth-iPhone
+* https://github.com/facebook/facebook-ios-sdk
+* http://code.google.com/p/json-framework
+
 ## Note on Patches/Pull Requests
 
 * Fork the project.
