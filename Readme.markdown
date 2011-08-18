@@ -144,8 +144,8 @@ Then define the following in your project somewhere:
 * Make your feature addition or bug fix.
 * Send me a pull request. Bonus points for topic branches.
 
-[DKFacebook]: https://github.com/keithpitt/DiscoKit/blob/master/DiscoKit/Classes/DKFacebook/DKFacebook.h
-[DKTwitter]: https://github.com/keithpitt/DiscoKit/tree/master/DiscoKit/Classes/DKTwitter
+[DKFacebook.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKFacebook/DKFacebook.h
+[DKTwitter.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKTwitter/DKTwitter.h
 
 ## License
 
