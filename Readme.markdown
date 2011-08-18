@@ -178,8 +178,10 @@ Then define the following in your project somewhere:
 * Make your feature addition or bug fix.
 * Send me a pull request. Bonus points for topic branches.
 
-[DKFacebook.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKFacebook/DKFacebook.h
-[DKTwitter.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKTwitter/DKTwitter.h
+## Contributers
+
+* [Keith Pitt][http://www.keithpitt.com]
+* [Mario Visico][http://www.mariovisic.com]
 
 ## License
 
@@ -204,3 +206,6 @@ DKSocial is licensed under the MIT License:
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
+
+[DKFacebook.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKFacebook/DKFacebook.h
+[DKTwitter.h]: https://github.com/keithpitt/DKSocial/blob/master/Classes/DKTwitter/DKTwitter.h
