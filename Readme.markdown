@@ -3,17 +3,6 @@
 DKSocial makes it easy to post to Twitter and Facebook using Objective-C blocks.
 It is used in the apps written by [Mostly Disco](http://www.mostlydisco.com)
 
-## Classes
-
-### DKFacebook
-
-* [DKFacebook][] - wrapper around FBConnect with block callbacks
-
-### DKTwitter
-
-* [DKTwitter][] - wrapper around the MGTwitterEngine with block
-  callbackks
-
 ## Installation
 
 Copy the files into to your project folder, and add them to your Xcode project.
@@ -31,7 +20,7 @@ Then define the following in your project somewhere:
 1. Follow the "Authentication and Authorization" instructions found at
    [here](https://github.com/facebook/facebook-ios-sdk)
 
-2. Include "DKFacebook.h" into your controller
+2. Include [DKFacebook.h][] into your controller
 
 3. Create a button on your interface that will enable posting to Facebook.
 
@@ -91,7 +80,7 @@ Then define the following in your project somewhere:
 
 ### DKTwitter
 
-1. Include "DKTwitter.h" into your controller
+1. Include [DKTwitter.h][] into your controller
 
 2. Create a button on your interface that will enable posting to Twitter.
 
