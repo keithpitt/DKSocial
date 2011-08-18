@@ -80,13 +80,20 @@ Then define the following in your project somewhere:
 
 5. Then post a link using:
 
-        // Post to facebook if enabled
-        if([[DKFacebook shared] isEnabled])
+        // Post to Facebook if enabled
+        if([[DKFacebook shared] isEnabled]) {
+
           [[DKFacebook shared] postLink:@"http://www.google.com" success:^{
+
             NSLog(@"Posting worked!");
+
           } error:^{
+
             NSLog(@"Posting to facebook failed.");
+
           }];
+
+        }
 
 ### DKTwitter
 
@@ -150,13 +157,20 @@ Then define the following in your project somewhere:
 
 4. Then post a tweet using:
 
-        // Post to facebook if enabled
-        if([[DKTwitter shared] isEnabled])
+        // Post to Twitter if enabled
+        if([[DKTwitter shared] isEnabled]) {
+
           [[DKTwitter shared] postMessage:@"Tweeting like a boss" link:@"http://www.google.com" success:^{
+
             NSLog(@"Posting worked!");
+
           } error:^{
+
             NSLog(@"Posting to Twitter failed.");
+
           }];
+
+        }
 
 ## Note on Patches/Pull Requests
 
