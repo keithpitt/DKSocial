@@ -17,7 +17,7 @@ Then define the following in your project somewhere:
 
 ### DKFacebook
 
-1. Follow the "Authentication and Authorization" instructions found at
+1. Follow the **Authentication and Authorization** instructions found at
    [here](https://github.com/facebook/facebook-ios-sdk)
 
 2. Include [DKFacebook.h][] into your controller
