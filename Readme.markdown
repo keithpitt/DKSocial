@@ -180,8 +180,8 @@ Then define the following in your project somewhere:
 
 ## Contributers
 
-* [Keith Pitt][http://www.keithpitt.com]
-* [Mario Visico][http://www.mariovisic.com]
+* [Keith Pitt](http://www.keithpitt.com)
+* [Mario Visico](http://www.mariovisic.com)
 
 ## License
 
