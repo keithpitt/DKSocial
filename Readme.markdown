@@ -99,57 +99,55 @@ Then define the following in your project somewhere:
    Obviously you'll need to change some of the variable names to match what
    is in your controller.
 
-    - (void)updateTwitterButtonStatus {
-
-      // Update the twitter button
-      self.twitterButton.selected = [[DKTwitter shared] isEnabled];
-
-    }
-
-    - (IBAction)twitterButtonPressed:(id)sender {
-
-      // Dismiss the keyboards
-      [self.textViewCounter dismissKeyboard];
-
-      if ([[DKTwitter shared] isEnabled]) {
-
-        // Disable Twitter posting
-        [[DKTwitter shared] setEnabled:NO];
-
-        // Update the twitter button
-        [self updateTwitterButtonStatus];
-
-      } else {
-
-        // Use the current controller for opening a dialog
-        [[DKTwitter shared] setController:self];
-
-        if ([[DKTwitter shared] isSessionValid]) {
-
-          // Enable Twitter posting
-          [[DKTwitter shared] setEnabled:YES];
+        - (void)updateTwitterButtonStatus {
 
           // Update the twitter button
-          [self updateTwitterButtonStatus];
+          self.twitterButton.selected = [[DKTwitter shared] isEnabled];
 
-        } else {
+        }
 
-          [DKTwitter shared].loginCallback = ^{
+        - (IBAction)twitterButtonPressed:(id)sender {
+
+          if ([[DKTwitter shared] isEnabled]) {
+
+            // Disable Twitter posting
+            [[DKTwitter shared] setEnabled:NO];
 
             // Update the twitter button
             [self updateTwitterButtonStatus];
 
-            // Set the login callback back to nil
-            [DKTwitter shared].loginCallback = nil;
+          } else {
 
-          };
+            // Use the current controller for opening a dialog
+            [[DKTwitter shared] setController:self];
 
-          [[DKTwitter shared] authorize];
+            if ([[DKTwitter shared] isSessionValid]) {
+
+              // Enable Twitter posting
+              [[DKTwitter shared] setEnabled:YES];
+
+              // Update the twitter button
+              [self updateTwitterButtonStatus];
+
+            } else {
+
+              [DKTwitter shared].loginCallback = ^{
+
+                // Update the twitter button
+                [self updateTwitterButtonStatus];
+
+                // Set the login callback back to nil
+                [DKTwitter shared].loginCallback = nil;
+
+              };
+
+              [[DKTwitter shared] authorize];
+
+            }
+
+          }
 
         }
-
-      }
-    }
 
 ## Note on Patches/Pull Requests
 
