@@ -39,55 +39,55 @@ Then define the following in your project somewhere:
    Obviously you'll need to change some of the variable names to match what
    is in your controller.
 
-      - (void)updateFacebookButtonStatus {
-
-        // Update the facebook button
-        self.facebookButton.selected = [[DKFacebook shared] isEnabled];
-
-      }
-
-      - (IBAction)facebookButtonPressed:(id)sender {
-
-        // If posting to Facebook is enabled, disable it and update
-        // the button.
-        if ([[DKFacebook shared] isEnabled]) {
-
-          // Disable Facebook posting
-          [[DKFacebook shared] setEnabled:NO];
+        - (void)updateFacebookButtonStatus {
 
           // Update the facebook button
-          [self updateFacebookButtonStatus];
+          self.facebookButton.selected = [[DKFacebook shared] isEnabled];
 
-        } else {
+        }
 
-          if ([[DKFacebook shared] isSessionValid]) {
+        - (IBAction)facebookButtonPressed:(id)sender {
 
-            // Enable Facebook posting
-            [[DKFacebook shared] setEnabled:YES];
+          // If posting to Facebook is enabled, disable it and update
+          // the button.
+          if ([[DKFacebook shared] isEnabled]) {
+
+            // Disable Facebook posting
+            [[DKFacebook shared] setEnabled:NO];
 
             // Update the facebook button
             [self updateFacebookButtonStatus];
 
           } else {
 
-            // After we've successfully authenticated with Facebook
-            [DKFacebook shared].loginCallback = ^{
+            if ([[DKFacebook shared] isSessionValid]) {
+
+              // Enable Facebook posting
+              [[DKFacebook shared] setEnabled:YES];
 
               // Update the facebook button
               [self updateFacebookButtonStatus];
 
-              // Set the login callback back to nil
-              [DKFacebook shared].loginCallback = nil;
+            } else {
 
-            };
+              // After we've successfully authenticated with Facebook
+              [DKFacebook shared].loginCallback = ^{
 
-            [[DKFacebook shared] authorize];
+                // Update the facebook button
+                [self updateFacebookButtonStatus];
+
+                // Set the login callback back to nil
+                [DKFacebook shared].loginCallback = nil;
+
+              };
+
+              [[DKFacebook shared] authorize];
+
+            }
 
           }
 
         }
-
-      }
 
 ### DKTwitter
 
@@ -99,57 +99,55 @@ Then define the following in your project somewhere:
    Obviously you'll need to change some of the variable names to match what
    is in your controller.
 
-    - (void)updateTwitterButtonStatus {
-
-      // Update the twitter button
-      self.twitterButton.selected = [[DKTwitter shared] isEnabled];
-
-    }
-
-    - (IBAction)twitterButtonPressed:(id)sender {
-
-      // Dismiss the keyboards
-      [self.textViewCounter dismissKeyboard];
-
-      if ([[DKTwitter shared] isEnabled]) {
-
-        // Disable Twitter posting
-        [[DKTwitter shared] setEnabled:NO];
-
-        // Update the twitter button
-        [self updateTwitterButtonStatus];
-
-      } else {
-
-        // Use the current controller for opening a dialog
-        [[DKTwitter shared] setController:self];
-
-        if ([[DKTwitter shared] isSessionValid]) {
-
-          // Enable Twitter posting
-          [[DKTwitter shared] setEnabled:YES];
+        - (void)updateTwitterButtonStatus {
 
           // Update the twitter button
-          [self updateTwitterButtonStatus];
+          self.twitterButton.selected = [[DKTwitter shared] isEnabled];
 
-        } else {
+        }
 
-          [DKTwitter shared].loginCallback = ^{
+        - (IBAction)twitterButtonPressed:(id)sender {
+
+          if ([[DKTwitter shared] isEnabled]) {
+
+            // Disable Twitter posting
+            [[DKTwitter shared] setEnabled:NO];
 
             // Update the twitter button
             [self updateTwitterButtonStatus];
 
-            // Set the login callback back to nil
-            [DKTwitter shared].loginCallback = nil;
+          } else {
 
-          };
+            // Use the current controller for opening a dialog
+            [[DKTwitter shared] setController:self];
 
-          [[DKTwitter shared] authorize];
+            if ([[DKTwitter shared] isSessionValid]) {
+
+              // Enable Twitter posting
+              [[DKTwitter shared] setEnabled:YES];
+
+              // Update the twitter button
+              [self updateTwitterButtonStatus];
+
+            } else {
+
+              [DKTwitter shared].loginCallback = ^{
+
+                // Update the twitter button
+                [self updateTwitterButtonStatus];
+
+                // Set the login callback back to nil
+                [DKTwitter shared].loginCallback = nil;
+
+              };
+
+              [[DKTwitter shared] authorize];
+
+            }
+
+          }
 
         }
-
-      }
-    }
 
 ## Note on Patches/Pull Requests
 
