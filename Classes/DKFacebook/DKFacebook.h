@@ -14,6 +14,7 @@
 
 typedef void (^DKFacebookCallback)(void);
 typedef void (^DKFacebookErrorCallback)(void);
+typedef void (^DKFacebookToggleBlock)(BOOL enabled);
 
 @interface DKFacebook : NSObject <FBSessionDelegate, FBRequestDelegate>
 
@@ -34,6 +35,7 @@ typedef void (^DKFacebookErrorCallback)(void);
 - (BOOL)isSessionValid;
 - (BOOL)isEnabled;
 - (void)postLink: (NSString *)link success:(DKFacebookCallback)successCallback error:(DKFacebookErrorCallback)errorCallback;
+- (void)toggle:(DKFacebookToggleBlock)block;
 
 // Success and error handing methods for facebook
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error;

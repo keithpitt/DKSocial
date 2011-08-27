@@ -115,6 +115,43 @@ static DKFacebook * sharedFacebookHelper = nil;
     
 }
 
+- (void)toggle:(DKFacebookToggleBlock)block {
+    
+    if ([self isEnabled]) {
+        
+        // Disable Facebook posting
+        [self setEnabled:NO];
+        
+        block(NO);
+        
+    } else {
+        
+        if ([self isSessionValid]) {
+            
+            // Enable Facebook posting
+            [self setEnabled:YES];
+            
+            block(YES);
+            
+        } else {
+            
+            self.loginCallback = ^{
+                
+                block([self isEnabled]);
+                
+                // Set the login callback back to nil
+                self.loginCallback = nil;
+                
+            };
+            
+            [self authorize];
+            
+        }
+        
+    }
+    
+}
+
 - (void)fbDidLogin {
     
     // Store the facebook credentials

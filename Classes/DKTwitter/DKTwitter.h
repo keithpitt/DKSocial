@@ -16,6 +16,7 @@
 
 typedef void (^DKTwitterCallback)(void);
 typedef void (^DKTwitterErrorCallback)(void);
+typedef void (^DKTwitterToggleBlock)(BOOL enabled);
 
 @interface DKTwitter : NSObject <SA_OAuthTwitterControllerDelegate, SA_OAuthTwitterEngineDelegate>
 
@@ -37,5 +38,6 @@ typedef void (^DKTwitterErrorCallback)(void);
 - (BOOL)isSessionValid;
 - (BOOL)isEnabled;
 - (void)postMessage: (NSString *)message link:(NSString *)link success:(DKTwitterCallback)successCallback error:(DKTwitterErrorCallback)errorCallback;
+- (void)toggle:(UIViewController *)viewController block:(DKTwitterToggleBlock)block;
 
 @end

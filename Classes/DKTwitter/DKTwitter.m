@@ -113,6 +113,46 @@ static DKTwitter * sharedTwitter = nil;
 
 }
 
+- (void)toggle:(UIViewController *)viewController block:(DKTwitterToggleBlock)block {
+    
+    if ([self isEnabled]) {
+        
+        // Disable Twitter posting
+        [self setEnabled:NO];
+        
+        block(NO);
+        
+    } else {
+        
+        self.controller = viewController;
+        
+        if ([self isSessionValid]) {
+            
+            // Enable Twitter posting
+            [self setEnabled:YES];
+            
+            block(YES);
+            
+        } else {
+            
+            self.loginCallback = ^{
+                
+                // Update the twitter button
+                block([self isEnabled]);
+                
+                // Set the login callback back to nil
+                [DKTwitter shared].loginCallback = nil;
+                
+            };
+            
+            [self authorize];
+            
+        }
+        
+    }
+    
+}
+
 - (void)postMessage: (NSString *)message link:(NSString *)link success:(DKTwitterCallback)successCallback error:(DKTwitterErrorCallback)errorCallback {
     
     self.messageSuccessCallback = successCallback;
