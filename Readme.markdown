@@ -9,84 +9,74 @@ Copy the files from "Classes" and "External" into to your project folder, and ad
 
 Then define the following in your project somewhere:
 
-    #define FB_ACCESS_TOKEN_KEY @"ID_GOES_HERE"
-    #define TWITTER_CONSUMER_KEY @"CONSUMER_KEY_HERE"
-    #define TWITTER_CONSIMER_SECRET @"CONSUMER_SECRET_HERE"
+```objective-c
+#define FB_ACCESS_TOKEN_KEY @"ID_GOES_HERE"
+#define TWITTER_CONSUMER_KEY @"CONSUMER_KEY_HERE"
+#define TWITTER_CONSIMER_SECRET @"CONSUMER_SECRET_HERE"
+```
 
 ## Usage
 
 ### DKFacebook
 
-1. Follow the **Authentication and Authorization** instructions found at
-   [here](https://github.com/facebook/facebook-ios-sdk)
+Before using the DKFacebook class, make sure you follow the 
+**Authentication and Authorization** instructions found at
+[here](https://github.com/facebook/facebook-ios-sdk) to setup
+Facebook in your application.
 
-2. Include [DKFacebook.h][] into your controller
+```objective-c
+#import "DKFacebook.h"
 
-3. Create a button on your interface that will enable posting to Facebook.
+- (void)authorizeFacebook {
 
-4. Once you've done that, paste the following code into your controller.
-   Obviously you'll need to change some of the variable names to match what
-   is in your controller.
+    [[DKFacebook shared] toggle:^(BOOL enabled) {
+        NSLog(@"Enabled: %i", enabled);        
+    }];
 
-        - (IBAction)facebookButtonPressed:(id)sender {
+}
 
-            [[DKFacebook shared] toggle:^(BOOL enabled) {
-              self.facebookButton.selected = enabled;
-            }];
+- (void)postLink {
 
-        }
+    if([[DKFacebook shared] isEnabled]) {
 
-5. Then post a link using:
-
-        // Post to Facebook if enabled
-        if([[DKFacebook shared] isEnabled]) {
-
-          [[DKFacebook shared] postLink:@"http://www.google.com" success:^{
-
+        [[DKFacebook shared] postLink:@"http://www.google.com" success:^{
             NSLog(@"Posting worked!");
-
-          } error:^{
-
+        } error:^{
             NSLog(@"Posting to facebook failed.");
+        }];
 
-          }];
-
-        }
+    }
+    
+}
+```
 
 ### DKTwitter
 
-1. Include [DKTwitter.h][] into your controller
+```objective-c
+#import "DKTwitter.h"
 
-2. Create a button on your interface that will enable posting to Twitter.
+- (void)authorizeTwitter {
 
-3. Once you've done that, paste the following code into your controller.
-   Obviously you'll need to change some of the variable names to match what
-   is in your controller.
+    [[DKTwitter shared] toggle:self block:^(BOOL enabled) {
+        NSLog(@"Enabled: %i", enabled);
+    }];
 
-        - (IBAction)twitterButtonPressed:(id)sender {
+}
 
-            [[DKTwitter shared] toggle:self block:^(BOOL enabled) {
-              self.twitterButton.selected = enabled;
-            }];
+- (void)tweet {
 
-        }
+    if([[DKTwitter shared] isEnabled]) {
 
-4. Then post a tweet using:
-
-        // Post to Twitter if enabled
-        if([[DKTwitter shared] isEnabled]) {
-
-          [[DKTwitter shared] postMessage:@"Tweeting like a boss" link:@"http://www.google.com" success:^{
-
+        [[DKTwitter shared] postMessage:@"Tweeting like a boss" link:@"http://www.google.com" success:^{
             NSLog(@"Posting worked!");
-
-          } error:^{
-
+        } error:^{
             NSLog(@"Posting to Twitter failed.");
+        }];
 
-          }];
+    }
 
-        }
+}
+```
 
 ## Libraries Used
 
@@ -103,7 +93,7 @@ Then define the following in your project somewhere:
 ## Contributers
 
 * [Keith Pitt](http://www.keithpitt.com)
-* [Mario Visico](http://www.mariovisic.com)
+* [Mario Visic](http://www.mariovisic.com)
 
 ## License
 
