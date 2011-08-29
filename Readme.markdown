@@ -12,7 +12,7 @@ Then define the following in your project somewhere:
 ```objective-c
 #define FB_ACCESS_TOKEN_KEY @"ID_GOES_HERE"
 #define TWITTER_CONSUMER_KEY @"CONSUMER_KEY_HERE"
-#define TWITTER_CONSIMER_SECRET @"CONSUMER_SECRET_HERE"
+#define TWITTER_CONSUMER_SECRET @"CONSUMER_SECRET_HERE"
 ```
 
 ## Usage
