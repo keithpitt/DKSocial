@@ -19,7 +19,7 @@ static DKTwitter * sharedTwitter = nil;
     
     if (sharedTwitter == nil) {
         sharedTwitter = [[DKTwitter alloc] initWithConsumerKey:TWITTER_CONSUMER_KEY
-                                             andConsumerSecret:TWITTER_CONSIMER_SECRET];        
+                                             andConsumerSecret:TWITTER_CONSUMER_SECRET];        
 
     }
     
