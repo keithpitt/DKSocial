@@ -5,7 +5,7 @@ It is used in the apps written by [Mostly Disco](http://www.mostlydisco.com)
 
 ## Installation
 
-Copy the files from "Classes" and "External" into to your project folder, and add them to your Xcode project.
+Copy the files from `Classes` and `External` into to your project folder, and add them to your Xcode project.
 
 Then define the following in your project somewhere:
 
